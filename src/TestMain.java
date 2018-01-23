@@ -1,12 +1,10 @@
-import com.study.isInterleave.Solution;
-
 public class TestMain
 {
 
     public static void main(String[] args)
     {
 
-        Solution solution = new Solution();
+        // Solution solution = new Solution();
         // boolean flag1 = solution.isInterleave("aabcc", "dbbca",
         // "aadbbbaccc");
         // boolean flag2 = solution.isInterleave("aabcc", "dbbca",
@@ -18,5 +16,6 @@ public class TestMain
         // System.out.println(flag4);
         // String aa = "a";
         // System.out.println(aa.equals(null));
+        System.out.println("Hello World!");
     }
 }
