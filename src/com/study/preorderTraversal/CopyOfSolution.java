@@ -15,7 +15,7 @@ import java.util.Stack;
  * }
  * }
  */
-public class Solution
+public class CopyOfSolution
 {
 
     public class TreeNode
@@ -41,24 +41,24 @@ public class Solution
         // write your code here
         List<Integer> treeValue = new ArrayList<Integer>(); // 按前序遍历，根，左，右，存储根节点的值
         Stack<TreeNode> treeNode = new Stack<TreeNode>(); // 存储当前未遍历到的节点，方便倒退遍历右子树
-
-        while (root != null)
+        if (root == null)
         {
-            // 存储节点值
-            treeValue.add(root.val);
+            return treeValue;
+        }
 
-            if (root.left != null)
+        treeNode.push(root);
+
+        while (!treeNode.empty())
+        {
+            TreeNode node = treeNode.pop();
+            treeValue.add(node.val);
+            if (node.right != null)
             {
-                treeNode.push(root);
-                root = root.left;
+                treeNode.push(node.right);
             }
-            else if (root.right != null)
+            if (node.left != null)
             {
-                root = root.right;
-            }
-            else if (!treeNode.isEmpty())
-            {
-                root = treeNode.pop().right;
+                treeNode.push(node.left);
             }
         }
 
@@ -68,7 +68,7 @@ public class Solution
     public static void main(String[] args)
     {
         // TODO Auto-generated method stub
-        Solution s = new Solution();
+        CopyOfSolution s = new CopyOfSolution();
         TreeNode tn0 = s.new TreeNode(1);
         TreeNode tn1 = s.new TreeNode(2);
         TreeNode tn2 = s.new TreeNode(3);
